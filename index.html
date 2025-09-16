@@ -8,20 +8,20 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(to bottom, #fdfdfd, #e8e8e8);
-      color: #222;
+      background: #000;
+      color: #eee;
       text-align: center;
       overflow-x: hidden;
     }
 
     /* Навбар */
     nav {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #111;
       padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid #222;
     }
 
     nav ul {
@@ -30,21 +30,22 @@
       padding: 0;
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
     }
 
     nav ul li a {
       text-decoration: none;
       font-size: 18px;
-      color: #333;
-      font-weight: bold;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 5px;
+      color: #eee;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
     }
 
     nav ul li a:hover {
-      color: #9146ff;
-      border-bottom: 2px solid #9146ff;
+      background: #9146ff;
+      color: #fff;
     }
 
     header {
@@ -54,7 +55,7 @@
     header img {
       max-width: 280px;
       border-radius: 16px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 40px rgba(145,70,255,0.5);
       transition: transform 1s ease;
     }
 
@@ -83,10 +84,10 @@
       text-align: left;
       margin: 40px auto;
       max-width: 550px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(30, 30, 30, 0.9);
       padding: 25px;
       border-radius: 14px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(145,70,255,0.4);
       animation: glow 3s ease-in-out infinite alternate;
     }
 
@@ -104,7 +105,7 @@
 
     @keyframes glow {
       from { box-shadow: 0 0 15px rgba(145,70,255,0.2); }
-      to   { box-shadow: 0 0 30px rgba(145,70,255,0.4); }
+      to   { box-shadow: 0 0 30px rgba(145,70,255,0.6); }
     }
 
     footer {
@@ -124,19 +125,20 @@
       100% { opacity: 1; }
     }
 
-    /* Падающие иконки */
+    /* Падающие кружки */
     .falling {
       position: fixed;
       top: -50px;
-      width: 30px;
-      height: 30px;
+      width: 18px;
+      height: 18px;
       z-index: 0;
       animation: fall linear infinite;
+      opacity: 0.9;
     }
 
     @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(-50px) scale(1); opacity: 1; }
+      100% { transform: translateY(110vh) scale(0.8); opacity: 0; }
     }
   </style>
 </head>
@@ -175,12 +177,12 @@
   </div>
 
   <footer>
-    <img src="https://media.tenor.com/4pyJI9bHsy8AAAAi/candle-light.gif" alt="Свеча памяти">
+    <img src="https://i.pinimg.com/originals/9a/fc/af/9afcafaba3af64fee70d3bd7348e3b5a.gif" alt="Свеча памяти">
   </footer>
 
-  <!-- Скрипт для падающих иконок -->
+  <!-- Скрипт для падающих кружков -->
   <script>
-    const iconUrl = "data:image/jpeg;base64,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";
+    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // твой base64
 
     function createFallingIcon() {
       const icon = document.createElement("img");
@@ -189,17 +191,17 @@
 
       // случайная позиция и скорость
       icon.style.left = Math.random() * window.innerWidth + "px";
-      icon.style.animationDuration = (3 + Math.random() * 5) + "s";
+      icon.style.animationDuration = (3 + Math.random() * 6) + "s";
 
       document.body.appendChild(icon);
 
       // удаляем после падения
       setTimeout(() => {
         icon.remove();
-      }, 8000);
+      }, 9000);
     }
 
-    setInterval(createFallingIcon, 700);
+    setInterval(createFallingIcon, 600);
   </script>
 </body>
 </html>
