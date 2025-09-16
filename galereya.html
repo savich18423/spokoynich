@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея — Spokoynich</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #000;
+      color: #f5f5f5;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: #111;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #f5f5f5;
+      font-weight: bold;
+      transition: all 0.3s;
+      padding: 5px 8px;
+      border-radius: 6px;
+    }
+
+    nav ul li a:hover {
+      background: #9146ff;
+      color: #fff;
+    }
+
+    h1 {
+      margin: 30px 0 20px;
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 0 0 8px #9146ff;
+    }
+
+    .gallery, .art-gallery, .video-gallery {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .gallery img, .art-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover, .art-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(145,70,255,0.6);
+    }
+
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(145,70,255,0.8);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Навбар -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Память</a></li>
+      <li><a href="sosceti.html">Ссылки</a></li>
+      <li><a href="#">Предложка</a></li>
+      <li><a href="galereya.html">Галерея</a></li>
+    </ul>
+  </nav>
+
+  <h1>📸 Галерея Максима</h1>
+
+  <!-- Фотографии -->
+  <div class="gallery">
+    <img src="https://nztcdn.com/files/75606416-9e41-40c6-83df-c944eae1753b.webp" alt="Макс курит сразу 3 сигареты">
+    <img src="https://iy.kommersant.ru/Issues.photo/NEWS/2025/01/08/KMO_111307_61624_1_t222_154615.jpg" alt="Почти лысый Макс">
+    <img src="https://i.pinimg.com/736x/16/e8/c3/16e8c34873b15aeb3aa9c82cd1e97d17.jpg" alt="Макс, Хелин, Ростик и Лера">
+    <img src="https://24smi.org/public/media/resize/800x-/2025/1/9/02_FBuNa0Z.jpg" alt="Максим почти сел в шпагат">
+    <img src="https://i.pinimg.com/474x/0b/5e/31/0b5e31c69f3108610960782f55f18db7.jpg" alt="Молодой Максим в метро">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYHHtZBVvNS9Iz9NrU2-jnoWT5Ss2AjfH5s62F2qjtS2AwVUALg54SXuUjhFzbdy6ya8&usqp=CAU" alt="Одна из лучших фоток Максима">
+    <img src="https://secretmag.ru/thumb/1280x1280/smart/filters:quality(75)/imgs/2025/01/08/13/6701856/7859a4d46a60a2e1f083589506fb2c3e3ef39934.jpg" alt="Угрюмый Максим">
+    <img src="https://i1.sndcdn.com/artworks-yimcsDAHsWjzuj6y-hzrC7A-t500x500.jpg" alt="Молодой Глеб с Максимом">
+    <img src="https://s.cq.ru/img/f/e/2025/1/08/477567.jpg" alt="Весёлый Максим">
+    <img src="https://i.pinimg.com/736x/44/5c/9f/445c9fe89d40191704996be2692b8cc0.jpg" alt="Максим в трусах">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyBDNe3ROmmWCfsvQwwGrfmC8qygfCw4X3g&s" alt="Максим в детстве">
+  </div>
+
+  <!-- Арты -->
+  <h1>🎨 Арты от подписчиков</h1>
+  <div class="art-gallery">
+    <img src="https://cdn4.telegram-cdn.org/file/984" alt="Арт 1">
+    <img src="https://cdn4.telegram-cdn.org/file/993" alt="Арт 2">
+    <img src="https://cdn4.telegram-cdn.org/file/1024" alt="Арт 3">
+    <img src="https://cdn4.telegram-cdn.org/file/1058" alt="Арт 4">
+    <img src="https://cdn4.telegram-cdn.org/file/1016" alt="Арт 5">
+    <img src="https://cdn4.telegram-cdn.org/file/886" alt="Арт 6">
+    <img src="https://cdn4.telegram-cdn.org/file/727" alt="Арт 7">
+    <img src="https://cdn4.telegram-cdn.org/file/696" alt="Арт 8">
+  </div>
+
+  <!-- Видео -->
+  <h1>🎥 Лучшие моменты и IRL</h1>
+  <div class="video-gallery">
+    <iframe src="https://www.youtube.com/embed/KLUMA7CnDfk" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/WyLiDsxIHGE" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/fP90dKzN41Y" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/KYGjce-o5oI" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <!-- Модалка -->
+  <div class="modal" id="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="">
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const images = document.querySelectorAll(".gallery img, .art-gallery img");
+
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
