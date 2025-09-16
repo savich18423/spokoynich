@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Соцсети Максима "Spokoynich"</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #000;
+      color: #f5f5f5;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Навбар */
+    nav {
+      background: #111;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #f5f5f5;
+      font-weight: bold;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a:hover {
+      color: #9146ff;
+      border-bottom: 2px solid #9146ff;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .socials {
+      max-width: 700px;
+      margin: 30px auto;
+      background: rgba(20,20,20,0.9);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(145,70,255,0.4);
+      text-align: left;
+    }
+
+    .socials h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #9146ff;
+      font-size: 22px;
+    }
+
+    .socials p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .socials a {
+      color: #f5f5f5;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #9146ff;
+    }
+
+    .post {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(40,40,40,0.9);
+      border-radius: 10px;
+      font-style: italic;
+    }
+
+    footer {
+      margin: 50px 0 20px;
+    }
+
+    footer img {
+      width: 70px;
+      height: auto;
+      filter: drop-shadow(0 0 15px #9146ff);
+      animation: flicker 1.8s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    /* Падающие иконки */
+    .falling {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      z-index: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Навигация -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Память</a></li>
+      <li><a href="sosceti.html">Ссылки</a></li>
+      <li><a href="#">Предложка</a></li>
+      <li><a href="#">Галерея</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Социальные сети и контакты</h1>
+  </header>
+
+  <div class="socials">
+    <h2>Официальные ссылки</h2>
+    <p>📌 <b>Telegram Максима:</b> <a href="https://t.me/spokoynich228" target="_blank">t.me/spokoynich228</a></p>
+    <p>📌 <b>Twitch канал:</b> <a href="https://twitch.tv/spokoynich_" target="_blank">twitch.tv/spokoynich_</a></p>
+    <p>📌 <b>Telegram мамы:</b> <a href="https://t.me/mamaelena999" target="_blank">t.me/mamaelena999</a></p>
+    <p>📌 <b>Email мамы:</b> <a href="mailto:mamulyaelena27@mail.ru">mamulyaelena27@mail.ru</a></p>
+
+    <div class="post">
+      <p><b>Последний пост Максима (1 Января 2025):</b></p>
+      <p>«Всех с наступающим !!! 🤟  
+      Желаю вам в новом году влюбиться, убрать уебанов из своей жизни, больше радоваться и не болеть. Всех обнял крепко. Я вам попозже сделаю пиздатый подарок 🎁.»</p>
+      <p><a href="https://t.me/spokoynich228/2010" target="_blank">🔗 Открыть пост</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <img src="https://media.tenor.com/4pyJI9bHsy8AAAAi/candle-light.gif" alt="Свеча памяти">
+  </footer>
+
+  <!-- Скрипт для падающих иконок -->
+  <script>
+    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // твой base64 сюда
+
+    function createFallingIcon() {
+      const icon = document.createElement("img");
+      icon.src = iconUrl;
+      icon.classList.add("falling");
+
+      icon.style.left = Math.random() * window.innerWidth + "px";
+      icon.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+      document.body.appendChild(icon);
+      setTimeout(() => icon.remove(), 8000);
+    }
+
+    setInterval(createFallingIcon, 700);
+  </script>
+</body>
+</html>
