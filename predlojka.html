@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предложка — Spokoynich</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0,0,0,0.9);
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    header a:hover {
+      color: #ff4444;
+    }
+
+    main {
+      padding: 120px 20px 60px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ff4444;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,0,0,0.3);
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      outline: none;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4444;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #cc0000;
+    }
+
+    .error, .success {
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .error { color: #ff4444; }
+    .success { color: #44ff44; }
+
+    #falling-icons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      form { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="falling-icons"></canvas>
+
+  <header>
+    <a href="index.html">Память</a>
+    <a href="sosceti.html">Ссылки</a>
+    <a href="predlojka.html">Предложка</a>
+    <a href="galereya.html">Галерея</a>
+  </header>
+
+  <main>
+    <h1>📨 Оставь свою предложку</h1>
+    <form id="suggestionForm">
+      <textarea name="text" placeholder="Твой текст (мин. 5 символов)" minlength="5" required></textarea>
+      <input type="file" name="file" accept="image/*,video/*">
+      <input type="text" name="contact" placeholder="Твой Telegram, почта или другой контакт" required>
+      <button type="submit">Отправить</button>
+    </form>
+    <p class="error"></p>
+    <p class="success"></p>
+  </main>
+
+  <!-- JS -->
+  <script>
+    const BOT_TOKEN = "8411929756:AAHvbT4lqf23OUFkFK3fUKVQM7EOW0YyONU";
+    const CHAT_ID = "-1002368041126";
+    const form = document.getElementById("suggestionForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const text = formData.get("text");
+      const contact = formData.get("contact");
+      const file = formData.get("file");
+
+      if (text.length < 5) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".error").innerText = "❌ Минимум 5 символов!";
+        return;
+      }
+
+      let message = `📩 Новая заявка в предложку:\n\n💬 Текст: ${text}\n👤 Контакт: ${contact || "Аноним"}`;
+
+      try {
+        // Отправка текста
+        const sendText = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: message }),
+        });
+
+        const res = await sendText.json();
+        if (!res.ok) throw new Error(res.description);
+
+        // Отправка файла
+        if (file && file.size > 0) {
+          const fd = new FormData();
+          fd.append("chat_id", CHAT_ID);
+          fd.append("document", file);
+
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
+            method: "POST",
+            body: fd,
+          });
+        }
+
+        document.querySelector(".success").style.display = "block";
+        document.querySelector(".success").innerText = "✅ Спасибо! Твоя предложка отправлена.";
+        document.querySelector(".error").style.display = "none";
+        form.reset();
+      } catch (err) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".error").innerText = "❌ Ошибка: " + err.message;
+        document.querySelector(".success").style.display = "none";
+      }
+    });
+
+    // Падающие иконки
+    const canvas = document.getElementById('falling-icons');
+    const ctx = canvas.getContext('2d');
+    let icons = [];
+    const iconImg = new Image();
+    iconImg.src = "https://i.pinimg.com/736x/9c/8c/be/9c8cbe64962cfb37c1a57c98c5ba84f0.jpg";
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createIcon() {
+      return {
+        x: Math.random() * canvas.width,
+        y: -50,
+        speed: 1 + Math.random() * 3,
+        size: 30 + Math.random() * 30
+      };
+    }
+
+    function animate() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      if(Math.random() < 0.05) icons.push(createIcon());
+      icons.forEach((icon, i) => {
+        icon.y += icon.speed;
+        ctx.drawImage(iconImg, icon.x, icon.y, icon.size, icon.size);
+        if(icon.y > canvas.height) icons.splice(i,1);
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
