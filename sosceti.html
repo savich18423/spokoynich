@@ -57,8 +57,8 @@
       color: #fff;
     }
 
-    .socials {
-      max-width: 700px;
+    .content-block {
+      max-width: 750px;
       margin: 30px auto;
       background: rgba(20,20,20,0.9);
       padding: 25px;
@@ -67,26 +67,27 @@
       text-align: left;
     }
 
-    .socials h2 {
+    .content-block h2 {
       text-align: center;
       margin-bottom: 20px;
       color: #9146ff;
       font-size: 22px;
     }
 
-    .socials p {
+    .content-block p {
       margin: 10px 0;
       font-size: 17px;
+      line-height: 1.5;
     }
 
-    .socials a {
+    .content-block a {
       color: #f5f5f5;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s;
     }
 
-    .socials a:hover {
+    .content-block a:hover {
       color: #9146ff;
     }
 
@@ -96,6 +97,10 @@
       background: rgba(40,40,40,0.9);
       border-radius: 10px;
       font-style: italic;
+    }
+
+    .post b {
+      color: #ffde59;
     }
 
     footer {
@@ -143,10 +148,11 @@
   </nav>
 
   <header>
-    <h1>Социальные сети и контакты</h1>
+    <h1>Социальные сети и воспоминания</h1>
   </header>
 
-  <div class="socials">
+  <!-- Официальные ссылки -->
+  <div class="content-block">
     <h2>Официальные ссылки</h2>
     <p>📌 <b>Telegram Максима:</b> <a href="https://t.me/spokoynich228" target="_blank">t.me/spokoynich228</a></p>
     <p>📌 <b>Twitch канал:</b> <a href="https://twitch.tv/spokoynich_" target="_blank">twitch.tv/spokoynich_</a></p>
@@ -154,11 +160,56 @@
     <p>📌 <b>Email мамы:</b> <a href="mailto:mamulyaelena27@mail.ru">mamulyaelena27@mail.ru</a></p>
 
     <div class="post">
-      <p><b>Последний пост Максима (1 Января 2025):</b></p>
+      <p><b>Последний пост Максима (31 декабря 2024):</b></p>
       <p>«Всех с наступающим !!! 🤟  
       Желаю вам в новом году влюбиться, убрать уебанов из своей жизни, больше радоваться и не болеть. Всех обнял крепко. Я вам попозже сделаю пиздатый подарок 🎁.»</p>
       <p><a href="https://t.me/spokoynich228/2010" target="_blank">🔗 Открыть пост</a></p>
     </div>
+  </div>
+
+  <!-- Посты от близких -->
+  <div class="content-block">
+    <h2>Слова близких</h2>
+
+    <div class="post">
+      <p><b>Лиза:</b> «Малыш, спасибо тебе за все это время... Я люблю тебя.»</p>
+      <p><a href="https://t.me/spokoynich228/2013" target="_blank">🔗 Читать полностью</a></p>
+    </div>
+
+    <div class="post">
+      <p><b>Егор Тряпкин:</b> «Спасибо Максу за всё... Шеф, ты правда легенда.»</p>
+      <p><a href="https://t.me/spokoynich228/2014" target="_blank">🔗 Читать полностью</a></p>
+    </div>
+
+    <div class="post">
+      <p><b>Sasavota:</b> «08.01.25 Максим Лучший Друг.»</p>
+      <p><a href="https://t.me/sasavot/1727" target="_blank">🔗 Читать пост</a></p>
+    </div>
+
+    <div class="post">
+      <p><b>Ростик:</b> «Максим был как родной дядя... Спасибо тебе за всё, покойся с миром, Шеф.»</p>
+      <p><a href="https://t.me/uglyfacekid/2998" target="_blank">🔗 Читать полностью</a></p>
+    </div>
+
+    <div class="post">
+      <p><b>Лера Морфи:</b> «Очень тяжело это писать... Мы тебя не забудем. Спи спокойно.»</p>
+      <p><a href="https://t.me/morpheyaa/12203" target="_blank">🔗 Читать пост</a></p>
+    </div>
+  </div>
+
+   <div class="post">
+      <p><b>Коря:</b> «Макс 😢💔
+Не хочется до конца в это верить…»</p>
+      <p><a href="https://t.me/korya_mc/3151" target="_blank">🔗 Читать пост</a></p>
+    </div>
+  </div>
+  
+  <!-- Фигурка -->
+  <div class="content-block">
+    <h2>В честь памяти</h2>
+    <p>🕊 В честь памяти о Максиме «Spokoynich» было сделано <b>1000 коллекционных фигурок "Максим"</b>.</p>
+    <p>Весь доход от продаж будет направлен на благотворительность.</p>
+    <p>👉 <a href="https://tuttoy.ru/katalog/kollekcionnaya-figurka-maksim-spokojnich" target="_blank">ССЫЛКА НА ФИГУРКУ</a></p>
   </div>
 
   <footer>
@@ -167,7 +218,7 @@
 
   <!-- Скрипт для падающих иконок -->
   <script>
-    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // твой base64 сюда
+    const iconUrl = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..."; // твой base64 сюда
 
     function createFallingIcon() {
       const icon = document.createElement("img");
