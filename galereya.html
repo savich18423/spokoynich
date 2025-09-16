@@ -25,15 +25,16 @@
     nav ul {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      gap: 15px;
       margin: 0;
       padding: 0;
     }
 
     nav ul li a {
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       color: #f5f5f5;
       font-weight: bold;
       transition: all 0.3s;
@@ -47,8 +48,8 @@
     }
 
     h1 {
-      margin: 30px 0 20px;
-      font-size: 28px;
+      margin: 25px 0 15px;
+      font-size: 24px;
       color: #fff;
       text-shadow: 0 0 8px #9146ff;
     }
@@ -57,14 +58,14 @@
       max-width: 1100px;
       margin: 20px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
       padding: 10px;
     }
 
     .gallery img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
       border-radius: 10px;
       cursor: pointer;
@@ -78,11 +79,11 @@
 
     iframe {
       width: 100%;
-      height: 220px;
+      aspect-ratio: 16/9;
       border-radius: 10px;
     }
 
-    /* Список артов */
+    /* Арты */
     .art-links {
       max-width: 800px;
       margin: 20px auto;
@@ -105,7 +106,7 @@
     }
 
     .art-links ul li {
-      margin: 10px 0;
+      margin: 8px 0;
     }
 
     .art-links a {
@@ -128,13 +129,14 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
+      padding: 15px;
     }
 
     .modal img {
-      max-width: 90%;
+      max-width: 100%;
       max-height: 90%;
       border-radius: 12px;
       box-shadow: 0 0 25px rgba(145,70,255,0.8);
@@ -142,12 +144,29 @@
 
     .close {
       position: absolute;
-      top: 20px;
-      right: 40px;
-      font-size: 40px;
+      top: 15px;
+      right: 20px;
+      font-size: 35px;
       color: #fff;
       cursor: pointer;
       font-weight: bold;
+    }
+
+    /* 📱 Адаптив */
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 10px;
+      }
+      nav ul li a {
+        font-size: 14px;
+        padding: 4px 6px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .gallery img {
+        height: 160px;
+      }
     }
   </style>
 </head>
@@ -206,7 +225,7 @@
     </ul>
   </div>
 
-    <!-- Видео -->
+  <!-- Видео -->
   <h1>🎥 Лучшие моменты и IRL</h1>
   <div class="video-gallery">
     <iframe src="https://www.youtube.com/embed/KLUMA7CnDfk" frameborder="0" allowfullscreen></iframe>
@@ -221,7 +240,6 @@
     <iframe src="https://www.youtube.com/embed/BbpOnEthh9I" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/A5tKfu4WpKg" frameborder="0" allowfullscreen></iframe>
   </div>
-
 
   <!-- Модалка -->
   <div class="modal" id="modal">
