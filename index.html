@@ -8,10 +8,43 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
-      color: #f0f0f0;
+      background: radial-gradient(circle at top, #fafafa, #e6e6e6);
+      color: #222;
       text-align: center;
       overflow-x: hidden;
+    }
+
+    /* Навбар */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
+    }
+
+    nav ul li a:hover {
+      color: #c47a00;
+      border-bottom: 2px solid #c47a00;
     }
 
     header {
@@ -21,7 +54,7 @@
     header img {
       max-width: 280px;
       border-radius: 16px;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
       transition: transform 1s ease;
     }
 
@@ -50,17 +83,17 @@
       text-align: left;
       margin: 40px auto;
       max-width: 550px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.9);
       padding: 25px;
       border-radius: 14px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.15);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       animation: glow 3s ease-in-out infinite alternate;
     }
 
     .facts h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #ffd580;
+      color: #c47a00;
       font-size: 24px;
     }
 
@@ -70,8 +103,8 @@
     }
 
     @keyframes glow {
-      from { box-shadow: 0 0 15px rgba(255,255,255,0.1); }
-      to   { box-shadow: 0 0 30px rgba(255,200,120,0.4); }
+      from { box-shadow: 0 0 15px rgba(200,150,50,0.2); }
+      to   { box-shadow: 0 0 30px rgba(200,150,50,0.4); }
     }
 
     footer {
@@ -81,23 +114,32 @@
     footer img {
       width: 70px;
       height: auto;
-      filter: drop-shadow(0 0 15px #ffcc88);
+      filter: drop-shadow(0 0 15px #c47a00);
       animation: flicker 1.8s infinite alternate;
     }
 
     @keyframes flicker {
       0% { opacity: 1; }
-      50% { opacity: 0.8; }
+      50% { opacity: 0.85; }
       100% { opacity: 1; }
     }
 
-    /* плавный скролл */
     html {
       scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  <!-- Навигация -->
+  <nav>
+    <ul>
+      <li><a href="#">Память</a></li>
+      <li><a href="#">Ссылки</a></li>
+      <li><a href="#">Предложка</a></li>
+      <li><a href="#">Галерея</a></li>
+    </ul>
+  </nav>
+
   <header>
     <img src="https://i.pinimg.com/736x/9c/8c/be/9c8cbe64962cfb37c1a57c98c5ba84f0.jpg" alt="Spokoynich">
   </header>
