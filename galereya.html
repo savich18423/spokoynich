@@ -53,7 +53,7 @@
       text-shadow: 0 0 8px #9146ff;
     }
 
-    .gallery, .art-gallery, .video-gallery {
+    .gallery, .video-gallery {
       max-width: 1100px;
       margin: 20px auto;
       display: grid;
@@ -62,7 +62,7 @@
       padding: 10px;
     }
 
-    .gallery img, .art-gallery img {
+    .gallery img {
       width: 100%;
       height: 220px;
       object-fit: cover;
@@ -71,7 +71,7 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .gallery img:hover, .art-gallery img:hover {
+    .gallery img:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(145,70,255,0.6);
     }
@@ -80,6 +80,43 @@
       width: 100%;
       height: 220px;
       border-radius: 10px;
+    }
+
+    /* Список артов */
+    .art-links {
+      max-width: 800px;
+      margin: 20px auto;
+      background: rgba(20,20,20,0.9);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 0 20px rgba(145,70,255,0.4);
+    }
+
+    .art-links h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #9146ff;
+    }
+
+    .art-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .art-links ul li {
+      margin: 10px 0;
+    }
+
+    .art-links a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .art-links a:hover {
+      color: #9146ff;
     }
 
     /* Модальное окно */
@@ -140,19 +177,33 @@
     <img src="https://s.cq.ru/img/f/e/2025/1/08/477567.jpg" alt="Весёлый Максим">
     <img src="https://i.pinimg.com/736x/44/5c/9f/445c9fe89d40191704996be2692b8cc0.jpg" alt="Максим в трусах">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyBDNe3ROmmWCfsvQwwGrfmC8qygfCw4X3g&s" alt="Максим в детстве">
+    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_002.webp" alt="Максим стикер 1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KFsIWhikbWJpgGRXYTHbb9RyjESJioxslDHtm4rvVh_3HcQdzwESDvaAVS5d622UNlc&usqp=CAU" alt="Фото Максима">
+    <img src="https://avatars.mds.yandex.net/i?id=648aa96d52edeb95d17141de085edbee5f778ffc-5086925-images-thumbs&n=13" alt="Фото Максима">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDY3EwV1LbGhGpfnzMUKEuZzw7PYVY8wYu7ZuXlUqtVWphkhpNEWNkFJXBgsOlhsUuowQ&usqp=CAU" alt="Фото Максима">
+    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_003.webp" alt="Максим стикер 2">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjNXoIBgE7qjEnEaXJdk1R8bphAg7QfgxlcXu32Zdpf1aZjIJKVlVlnZ479LjR8lWjoc&usqp=CAU" alt="Фото Максима">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgYENEu-NYFO6lAW6ZlG3QaYeopuM3YfOjHHmamCAXL6JSjvN37rQt0-dE40wM6whqBA&usqp=CAU" alt="Фото Максима">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJLJyRCU5BpzzqyZal5PblyDbF6ZgEDote7I-l1ErU0LiVuu2KUXEv6Edq_7czxP0NW1g&usqp=CAU" alt="Фото Максима">
+    <img src="https://media.tenor.com/FU5pwn8SUAgAAAAM/%D1%81%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%B8%D1%87.gif" alt="Гиф Спокойнич">
+    <img src="https://i.pinimg.com/236x/bb/50/5d/bb505dbc0fd43be818d5b05b98278f16.jpg" alt="Фото Максима">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUEz12yFjbdaM2Y_qwcuF9HtzgMizsTjWm-MF1OEUvkfMnNORgGj2Pb-fZhzxhVQc9I20&usqp=CAU" alt="Фото Максима">
   </div>
 
   <!-- Арты -->
   <h1>🎨 Арты от подписчиков</h1>
-  <div class="art-gallery">
-    <img src="https://cdn4.telegram-cdn.org/file/984" alt="Арт 1">
-    <img src="https://cdn4.telegram-cdn.org/file/993" alt="Арт 2">
-    <img src="https://cdn4.telegram-cdn.org/file/1024" alt="Арт 3">
-    <img src="https://cdn4.telegram-cdn.org/file/1058" alt="Арт 4">
-    <img src="https://cdn4.telegram-cdn.org/file/1016" alt="Арт 5">
-    <img src="https://cdn4.telegram-cdn.org/file/886" alt="Арт 6">
-    <img src="https://cdn4.telegram-cdn.org/file/727" alt="Арт 7">
-    <img src="https://cdn4.telegram-cdn.org/file/696" alt="Арт 8">
+  <div class="art-links">
+    <h2>Ссылки на арты в Telegram</h2>
+    <ul>
+      <li><a href="https://t.me/mamaelena999/984" target="_blank">Арт 1</a></li>
+      <li><a href="https://t.me/mamaelena999/993" target="_blank">Арт 2</a></li>
+      <li><a href="https://t.me/mamaelena999/1024" target="_blank">Арт 3</a></li>
+      <li><a href="https://t.me/mamaelena999/1058" target="_blank">Арт 4</a></li>
+      <li><a href="https://t.me/mamaelena999/1016" target="_blank">Арт 5</a></li>
+      <li><a href="https://t.me/mamaelena999/886" target="_blank">Арт 6</a></li>
+      <li><a href="https://t.me/mamaelena999/727" target="_blank">Арт 7</a></li>
+      <li><a href="https://t.me/mamaelena999/696" target="_blank">Арт 8</a></li>
+    </ul>
   </div>
 
   <!-- Видео -->
@@ -173,7 +224,7 @@
   <script>
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-img");
-    const images = document.querySelectorAll(".gallery img, .art-gallery img");
+    const images = document.querySelectorAll(".gallery img");
 
     images.forEach(img => {
       img.addEventListener("click", () => {
