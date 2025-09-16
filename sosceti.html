@@ -14,7 +14,7 @@
       overflow-x: hidden;
     }
 
-    /* Навбар */
+    /* Навигация */
     nav {
       background: #111;
       box-shadow: 0 2px 10px rgba(0,0,0,0.8);
@@ -38,13 +38,14 @@
       font-size: 18px;
       color: #f5f5f5;
       font-weight: bold;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 5px;
+      transition: all 0.3s;
+      padding: 5px 8px;
+      border-radius: 6px;
     }
 
     nav ul li a:hover {
-      color: #9146ff;
-      border-bottom: 2px solid #9146ff;
+      background: #9146ff;
+      color: #fff;
     }
 
     header {
@@ -52,18 +53,19 @@
     }
 
     header h1 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 10px;
       color: #fff;
+      text-shadow: 0 0 8px #9146ff;
     }
 
     .content-block {
-      max-width: 750px;
+      max-width: 900px;
       margin: 30px auto;
       background: rgba(20,20,20,0.9);
       padding: 25px;
       border-radius: 14px;
-      box-shadow: 0 0 25px rgba(145,70,255,0.4);
+      box-shadow: 0 0 25px rgba(145,70,255,0.3);
       text-align: left;
     }
 
@@ -71,7 +73,7 @@
       text-align: center;
       margin-bottom: 20px;
       color: #9146ff;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .content-block p {
@@ -81,18 +83,18 @@
     }
 
     .content-block a {
-      color: #f5f5f5;
+      color: #ffde59;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .content-block a:hover {
-      color: #9146ff;
+      color: #fff;
     }
 
     .post {
-      margin-top: 20px;
+      margin-top: 15px;
       padding: 15px;
       background: rgba(40,40,40,0.9);
       border-radius: 10px;
@@ -101,6 +103,59 @@
 
     .post b {
       color: #ffde59;
+    }
+
+    /* Карточки блогеров */
+    .bloggers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(35,35,35,0.95);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(145,70,255,0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-body h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .card-body a {
+      display: inline-block;
+      margin-top: 5px;
+      background: #9146ff;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .card-body a:hover {
+      background: #732ecc;
     }
 
     footer {
@@ -170,40 +225,13 @@
   <!-- Посты от близких -->
   <div class="content-block">
     <h2>Слова близких</h2>
-
-    <div class="post">
-      <p><b>Лиза:</b> «Малыш, спасибо тебе за все это время... Я люблю тебя.»</p>
-      <p><a href="https://t.me/spokoynich228/2013" target="_blank">🔗 Читать полностью</a></p>
-    </div>
-
-    <div class="post">
-      <p><b>Егор Тряпкин:</b> «Спасибо Максу за всё... Шеф, ты правда легенда.»</p>
-      <p><a href="https://t.me/spokoynich228/2014" target="_blank">🔗 Читать полностью</a></p>
-    </div>
-
-    <div class="post">
-      <p><b>Sasavota:</b> «08.01.25 Максим Лучший Друг.»</p>
-      <p><a href="https://t.me/sasavot/1727" target="_blank">🔗 Читать пост</a></p>
-    </div>
-
-    <div class="post">
-      <p><b>Ростик:</b> «Максим был как родной дядя... Спасибо тебе за всё, покойся с миром, Шеф.»</p>
-      <p><a href="https://t.me/uglyfacekid/2998" target="_blank">🔗 Читать полностью</a></p>
-    </div>
-
-    <div class="post">
-      <p><b>Лера Морфи:</b> «Очень тяжело это писать... Мы тебя не забудем. Спи спокойно.»</p>
-      <p><a href="https://t.me/morpheyaa/12203" target="_blank">🔗 Читать пост</a></p>
-    </div>
+    <div class="post"><p><b>Лиза:</b> «Малыш, спасибо тебе за все это время... Я люблю тебя.» <a href="https://t.me/spokoynich228/2013" target="_blank">Читать</a></p></div>
+    <div class="post"><p><b>Егор Тряпкин:</b> «Спасибо Максу за всё... Шеф, ты правда легенда.» <a href="https://t.me/spokoynich228/2014" target="_blank">Читать</a></p></div>
+    <div class="post"><p><b>Sasavota:</b> «08.01.25 Максим Лучший Друг.» <a href="https://t.me/sasavot/1727" target="_blank">Читать</a></p></div>
+    <div class="post"><p><b>Ростик:</b> «Максим был как родной дядя... Спасибо тебе за всё, покойся с миром, Шеф.» <a href="https://t.me/uglyfacekid/2998" target="_blank">Читать</a></p></div>
+    <div class="post"><p><b>Лера Морфи:</b> «Очень тяжело это писать... Мы тебя не забудем.» <a href="https://t.me/morpheyaa/12203" target="_blank">Читать</a></p></div>
   </div>
 
-   <div class="post">
-      <p><b>Коря:</b> «Макс 😢💔
-Не хочется до конца в это верить…»</p>
-      <p><a href="https://t.me/korya_mc/3151" target="_blank">🔗 Читать пост</a></p>
-    </div>
-  </div>
-  
   <!-- Фигурка -->
   <div class="content-block">
     <h2>В честь памяти</h2>
@@ -212,22 +240,43 @@
     <p>👉 <a href="https://tuttoy.ru/katalog/kollekcionnaya-figurka-maksim-spokojnich" target="_blank">ССЫЛКА НА ФИГУРКУ</a></p>
   </div>
 
+  <!-- Блогеры о Спокойниче -->
+  <div class="content-block">
+    <h2>Блогеры о Спокойниче</h2>
+    <div class="bloggers">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/-rsDMsoVG6k/hq720.jpg" alt="Stint">
+        <div class="card-body">
+          <h3>Stint</h3>
+          <a href="https://youtu.be/-rsDMsoVG6k" target="_blank">Смотреть</a>
+        </div>
+      </div>
+      <div class="card"><img src="https://img.youtube.com/vi/IvBbax5BHt0/hqdefault.jpg"><div class="card-body"><h3>Строго</h3><a href="https://www.youtube.com/shorts/IvBbax5BHt0" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/QwXd60Nq6v4/hqdefault.jpg"><div class="card-body"><h3>Мафаня</h3><a href="https://youtu.be/QwXd60Nq6v4" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/eZCU4HyTssI/hqdefault.jpg"><div class="card-body"><h3>Коря</h3><a href="https://www.youtube.com/watch?v=eZCU4HyTssI" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/L6OolSuZpp4/hqdefault.jpg"><div class="card-body"><h3>Ростик</h3><a href="https://www.youtube.com/watch?v=L6OolSuZpp4&t=290s" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/dAIiHbS7pNo/hqdefault.jpg"><div class="card-body"><h3>Пятёрка</h3><a href="https://www.youtube.com/watch?v=dAIiHbS7pNo" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/0I5UfcBPirI/hqdefault.jpg"><div class="card-body"><h3>Даша</h3><a href="https://www.youtube.com/watch?v=0I5UfcBPirI&t=1692s" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/5yRWn_uw52I/hqdefault.jpg"><div class="card-body"><h3>Морфилина</h3><a href="https://youtube.com/shorts/5yRWn_uw52I" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/Urd_ZFBzgrg/hqdefault.jpg"><div class="card-body"><h3>Лида</h3><a href="https://www.youtube.com/watch?v=Urd_ZFBzgrg" target="_blank">Смотреть</a></div></div>
+      <div class="card"><img src="https://img.youtube.com/vi/aXAAfbZw3ko/hqdefault.jpg"><div class="card-body"><h3>Тоха</h3><a href="https://www.youtube.com/watch?v=aXAAfbZw3ko" target="_blank">Смотреть</a></div></div>
+    </div>
+  </div>
+
   <footer>
     <img src="https://media.tenor.com/4pyJI9bHsy8AAAAi/candle-light.gif" alt="Свеча памяти">
   </footer>
 
-  <!-- Скрипт для падающих иконок -->
+  <!-- Падающие иконки -->
   <script>
-    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // твой base64 сюда
+    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // вставь сюда base64
 
     function createFallingIcon() {
       const icon = document.createElement("img");
       icon.src = iconUrl;
       icon.classList.add("falling");
-
       icon.style.left = Math.random() * window.innerWidth + "px";
       icon.style.animationDuration = (3 + Math.random() * 5) + "s";
-
       document.body.appendChild(icon);
       setTimeout(() => icon.remove(), 8000);
     }
