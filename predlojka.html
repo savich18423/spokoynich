@@ -193,42 +193,6 @@
         document.querySelector(".success").style.display = "none";
       }
     });
-
-    // Падающие иконки
-    const canvas = document.getElementById('falling-icons');
-    const ctx = canvas.getContext('2d');
-    let icons = [];
-    const iconImg = new Image();
-    iconImg.src = "https://i.pinimg.com/736x/9c/8c/be/9c8cbe64962cfb37c1a57c98c5ba84f0.jpg";
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    function createIcon() {
-      return {
-        x: Math.random() * canvas.width,
-        y: -50,
-        speed: 1 + Math.random() * 3,
-        size: 30 + Math.random() * 30
-      };
-    }
-
-    function animate() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      if(Math.random() < 0.05) icons.push(createIcon());
-      icons.forEach((icon, i) => {
-        icon.y += icon.speed;
-        ctx.drawImage(iconImg, icon.x, icon.y, icon.size, icon.size);
-        if(icon.y > canvas.height) icons.splice(i,1);
-      });
-      requestAnimationFrame(animate);
-    }
-
-    animate();
   </script>
 </body>
 </html>
