@@ -267,33 +267,30 @@
   Ваш браузер не поддерживает воспроизведение аудио.
 </audio>
 
-  <script>
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    const images = document.querySelectorAll(".gallery img");
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const images = document.querySelectorAll(".gallery img");
 
-    images.forEach(img => {
-      img.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-      });
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
     });
+  });
 
-    function closeModal() {
-      modal.style.display = "none";
-    }
+  function closeModal() {
+    modal.style.display = "none";
+  }
 
-    <script>
+  // 🎵 Автовоспроизведение музыки (после клика на сайт)
   const audio = document.getElementById("bg-music");
-
-  // Запускаем музыку после взаимодействия (для мобильных браузеров это важно)
   document.addEventListener("click", () => {
     if (audio.paused) {
       audio.play().catch(e => console.log("Автовоспроизведение заблокировано:", e));
     }
   });
-</script>
-  
+
   </script>
 </body>
 </html>
