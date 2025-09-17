@@ -31,6 +31,7 @@
       display: flex;
       justify-content: center;
       gap: 30px;
+      flex-wrap: wrap;
     }
 
     nav ul li a {
@@ -71,6 +72,7 @@
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 2.5s ease forwards;
+      padding: 0 15px;
     }
 
     @keyframes fadeInUp {
@@ -140,6 +142,71 @@
       0% { transform: translateY(-50px) scale(1); opacity: 1; }
       100% { transform: translateY(110vh) scale(0.8); opacity: 0; }
     }
+
+    /* 📱 Адаптив */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 15px;
+      }
+
+      nav ul li a {
+        font-size: 16px;
+        padding: 6px 10px;
+      }
+
+      header img {
+        max-width: 200px;
+      }
+
+      .bio {
+        font-size: 16px;
+      }
+
+      .facts {
+        max-width: 90%;
+        padding: 15px;
+      }
+
+      .facts h2 {
+        font-size: 20px;
+      }
+
+      .facts p {
+        font-size: 15px;
+      }
+
+      footer img {
+        width: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 15px;
+      }
+
+      header {
+        padding: 20px 10px 10px;
+      }
+
+      header img {
+        max-width: 160px;
+      }
+
+      .bio {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .facts {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,20 +249,18 @@
 
   <!-- Скрипт для падающих кружков -->
   <script>
-    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png"; // твой base64
+    const iconUrl = "https://static-cdn.jtvnw.net/jtv_user_pictures/d54ee5e4-40d4-4565-a048-3959a74629c7-profile_image-300x300.png";
 
     function createFallingIcon() {
       const icon = document.createElement("img");
       icon.src = iconUrl;
       icon.classList.add("falling");
 
-      // случайная позиция и скорость
       icon.style.left = Math.random() * window.innerWidth + "px";
       icon.style.animationDuration = (3 + Math.random() * 6) + "s";
 
       document.body.appendChild(icon);
 
-      // удаляем после падения
       setTimeout(() => {
         icon.remove();
       }, 9000);
