@@ -14,177 +14,140 @@
       background: url("https://media.tenor.com/AeywJvk00hQAAAAM/spokoynich-%D1%81%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%B8%D1%87.gif") center center fixed;
       background-size: cover;
     }
-
-    /* затемняющий слой */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.8);
       z-index: -1;
     }
-
     nav {
-      background: rgba(17,17,17,0.9);
+      background: rgba(17,17,17,0.85);
       padding: 15px;
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(145,70,255,0.4);
+      border-bottom: 1px solid rgba(145,70,255,0.6);
+      box-shadow: 0 0 15px rgba(145,70,255,0.4);
     }
-
     nav ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
       margin: 0;
       padding: 0;
     }
-
     nav ul li a {
       text-decoration: none;
       font-size: 16px;
-      color: #f5f5f5;
+      color: #fff;
       font-weight: bold;
       transition: all 0.3s;
-      padding: 5px 8px;
-      border-radius: 6px;
+      padding: 6px 10px;
+      border-radius: 8px;
     }
-
     nav ul li a:hover {
-      background: #9146ff;
+      background: linear-gradient(90deg, #9146ff, #ff3ea5);
       color: #fff;
+      box-shadow: 0 0 10px #9146ff;
     }
-
     h1 {
-      margin: 25px 0 15px;
-      font-size: 24px;
+      margin: 30px 0 15px;
+      font-size: 26px;
       color: #fff;
-      text-shadow: 0 0 8px #9146ff;
+      text-shadow: 0 0 15px #9146ff, 0 0 30px #ff3ea5;
     }
-
     .gallery, .video-gallery {
       max-width: 1100px;
       margin: 20px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      padding: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 15px;
     }
-
     .gallery img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 14px;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-
     .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(145,70,255,0.6);
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #9146ff, 0 0 40px #ff3ea5;
     }
-
     iframe {
       width: 100%;
       aspect-ratio: 16/9;
-      border-radius: 10px;
-    }
-
-    /* Арты */
-    .art-links {
-      max-width: 800px;
-      margin: 20px auto;
-      background: rgba(20,20,20,0.85);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: left;
+      border-radius: 14px;
       box-shadow: 0 0 20px rgba(145,70,255,0.4);
     }
-
+    .art-links {
+      max-width: 800px;
+      margin: 30px auto;
+      background: rgba(20,20,20,0.85);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: left;
+      box-shadow: 0 0 25px rgba(145,70,255,0.6);
+    }
     .art-links h2 {
       text-align: center;
       margin-bottom: 15px;
-      color: #9146ff;
+      color: #ff3ea5;
     }
-
-    .art-links ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .art-links ul li {
-      margin: 8px 0;
-    }
-
-    .art-links a {
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .art-links a:hover {
-      color: #9146ff;
-    }
-
-    /* Модальное окно */
+    .art-links ul { list-style: none; padding: 0; }
+    .art-links ul li { margin: 8px 0; }
+    .art-links a { color: #f5f5f5; text-decoration: none; font-weight: bold; }
+    .art-links a:hover { color: #ff3ea5; text-shadow: 0 0 10px #ff3ea5; }
     .modal {
       display: none;
       position: fixed;
       z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
-      padding: 15px;
+      padding: 20px;
     }
-
     .modal img {
-      max-width: 100%;
+      max-width: 90%;
       max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(145,70,255,0.8);
+      border-radius: 14px;
+      box-shadow: 0 0 40px #9146ff, 0 0 70px #ff3ea5;
     }
-
     .close {
       position: absolute;
       top: 15px;
-      right: 20px;
-      font-size: 35px;
+      right: 25px;
+      font-size: 40px;
       color: #fff;
       cursor: pointer;
-      font-weight: bold;
     }
-
-    /* 📱 Адаптив */
+    .close:hover { color: #ff3ea5; }
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -2;
+    }
     @media (max-width: 600px) {
-      nav ul {
-        gap: 10px;
-      }
-      nav ul li a {
-        font-size: 14px;
-        padding: 4px 6px;
-      }
-      h1 {
-        font-size: 20px;
-      }
-      .gallery img {
-        height: 160px;
-      }
+      nav ul { gap: 10px; }
+      nav ul li a { font-size: 14px; }
+      h1 { font-size: 20px; }
+      .gallery img { height: 160px; }
     }
   </style>
 </head>
 <body>
-  <!-- Навбар -->
+  <canvas id="particles"></canvas>
+
   <nav>
     <ul>
       <li><a href="index.html">Память</a></li>
@@ -195,34 +158,32 @@
   </nav>
 
   <h1>📸 Галерея Максима</h1>
-
-  <!-- Фотографии -->
   <div class="gallery">
-    <img src="https://nztcdn.com/files/75606416-9e41-40c6-83df-c944eae1753b.webp" alt="Макс курит сразу 3 сигареты">
-    <img src="https://iy.kommersant.ru/Issues.photo/NEWS/2025/01/08/KMO_111307_61624_1_t222_154615.jpg" alt="Почти лысый Макс">
-    <img src="https://i.pinimg.com/736x/16/e8/c3/16e8c34873b15aeb3aa9c82cd1e97d17.jpg" alt="Макс, Хелин, Ростик и Лера">
-    <img src="https://24smi.org/public/media/resize/800x-/2025/1/9/02_FBuNa0Z.jpg" alt="Максим почти сел в шпагат">
-    <img src="https://i.pinimg.com/474x/0b/5e/31/0b5e31c69f3108610960782f55f18db7.jpg" alt="Молодой Максим в метро">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYHHtZBVvNS9Iz9NrU2-jnoWT5Ss2AjfH5s62F2qjtS2AwVUALg54SXuUjhFzbdy6ya8&usqp=CAU" alt="Одна из лучших фоток Максима">
-    <img src="https://secretmag.ru/thumb/1280x1280/smart/filters:quality(75)/imgs/2025/01/08/13/6701856/7859a4d46a60a2e1f083589506fb2c3e3ef39934.jpg" alt="Угрюмый Максим">
-    <img src="https://i1.sndcdn.com/artworks-yimcsDAHsWjzuj6y-hzrC7A-t500x500.jpg" alt="Молодой Глеб с Максимом">
-    <img src="https://s.cq.ru/img/f/e/2025/1/08/477567.jpg" alt="Весёлый Максим">
-    <img src="https://i.pinimg.com/736x/44/5c/9f/445c9fe89d40191704996be2692b8cc0.jpg" alt="Максим в трусах">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyBDNe3ROmmWCfsvQwwGrfmC8qygfCw4X3g&s" alt="Максим в детстве">
-    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_002.webp" alt="Максим стикер 1">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KFsIWhikbWJpgGRXYTHbb9RyjESJioxslDHtm4rvVh_3HcQdzwESDvaAVS5d622UNlc&usqp=CAU" alt="Фото Максима">
-    <img src="https://avatars.mds.yandex.net/i?id=648aa96d52edeb95d17141de085edbee5f778ffc-5086925-images-thumbs&n=13" alt="Фото Максима">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDY3EwV1LbGhGpfnzMUKEuZzw7PYVY8wYu7ZuXlUqtVWphkhpNEWNkFJXBgsOlhsUuowQ&usqp=CAU" alt="Фото Максима">
-    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_003.webp" alt="Максим стикер 2">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjNXoIBgE7qjEnEaXJdk1R8bphAg7QfgxlcXu32Zdpf1aZjIJKVlVlnZ479LjR8lWjoc&usqp=CAU" alt="Фото Максима">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgYENEu-NYFO6lAW6ZlG3QaYeopuM3YfOjHHmamCAXL6JSjvN37rQt0-dE40wM6whqBA&usqp=CAU" alt="Фото Максима">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJLJyRCU5BpzzqyZal5PblyDbF6ZgEDote7I-l1ErU0LiVuu2KUXEv6Edq_7czxP0NW1g&usqp=CAU" alt="Фото Максима">
-    <img src="https://media.tenor.com/FU5pwn8SUAgAAAAM/%D1%81%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%B8%D1%87.gif" alt="Гиф Спокойнич">
-    <img src="https://i.pinimg.com/236x/bb/50/5d/bb505dbc0fd43be818d5b05b98278f16.jpg" alt="Фото Максима">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUEz12yFjbdaM2Y_qwcuF9HtzgMizsTjWm-MF1OEUvkfMnNORgGj2Pb-fZhzxhVQc9I20&usqp=CAU" alt="Фото Максима">
+    <!-- ВСЕ ФОТКИ -->
+    <img src="https://nztcdn.com/files/75606416-9e41-40c6-83df-c944eae1753b.webp">
+    <img src="https://iy.kommersant.ru/Issues.photo/NEWS/2025/01/08/KMO_111307_61624_1_t222_154615.jpg">
+    <img src="https://i.pinimg.com/736x/16/e8/c3/16e8c34873b15aeb3aa9c82cd1e97d17.jpg">
+    <img src="https://24smi.org/public/media/resize/800x-/2025/1/9/02_FBuNa0Z.jpg">
+    <img src="https://i.pinimg.com/474x/0b/5e/31/0b5e31c69f3108610960782f55f18db7.jpg">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYHHtZBVvNS9Iz9NrU2-jnoWT5Ss2AjfH5s62F2qjtS2AwVUALg54SXuUjhFzbdy6ya8">
+    <img src="https://secretmag.ru/thumb/1280x1280/smart/filters:quality(75)/imgs/2025/01/08/13/6701856/7859a4d46a60a2e1f083589506fb2c3e3ef39934.jpg">
+    <img src="https://i1.sndcdn.com/artworks-yimcsDAHsWjzuj6y-hzrC7A-t500x500.jpg">
+    <img src="https://s.cq.ru/img/f/e/2025/1/08/477567.jpg">
+    <img src="https://i.pinimg.com/736x/44/5c/9f/445c9fe89d40191704996be2692b8cc0.jpg">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoyBDNe3ROmmWCfsvQwwGrfmC8qygfCw4X3g&s">
+    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_002.webp">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KFsIWhikbWJpgGRXYTHbb9RyjESJioxslDHtm4rvVh_3HcQdzwESDvaAVS5d622UNlc">
+    <img src="https://avatars.mds.yandex.net/i?id=648aa96d52edeb95d17141de085edbee5f778ffc-5086925-images-thumbs&n=13">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDY3EwV1LbGhGpfnzMUKEuZzw7PYVY8wYu7ZuXlUqtVWphkhpNEWNkFJXBgsOlhsUuowQ">
+    <img src="https://data.chpic.su/stickers/m/MaksimSpokojnich/MaksimSpokojnich_003.webp">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjNXoIBgE7qjEnEaXJdk1R8bphAg7QfgxlcXu32Zdpf1aZjIJKVlVlnZ479LjR8lWjoc">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgYENEu-NYFO6lAW6ZlG3QaYeopuM3YfOjHHmamCAXL6JSjvN37rQt0-dE40wM6whqBA">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJLJyRCU5BpzzqyZal5PblyDbF6ZgEDote7I-l1ErU0LiVuu2KUXEv6Edq_7czxP0NW1g">
+    <img src="https://media.tenor.com/FU5pwn8SUAgAAAAM/%D1%81%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%B8%D1%87.gif">
+    <img src="https://i.pinimg.com/236x/bb/50/5d/bb505dbc0fd43be818d5b05b98278f16.jpg">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUEz12yFjbdaM2Y_qwcuF9HtzgMizsTjWm-MF1OEUvkfMnNORgGj2Pb-fZhzxhVQc9I20">
   </div>
 
-  <!-- Арты -->
   <h1>🎨 Арты от подписчиков</h1>
   <div class="art-links">
     <h2>Ссылки на арты в Telegram</h2>
@@ -238,10 +199,8 @@
     </ul>
   </div>
 
-  <!-- Видео -->
   <h1>🎥 Записи стримов и IRL</h1>
   <div class="video-gallery">
-    <!-- Старые видео -->
     <iframe src="https://www.youtube.com/embed/KLUMA7CnDfk" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/WyLiDsxIHGE" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/fP90dKzN41Y" frameborder="0" allowfullscreen></iframe>
@@ -252,8 +211,6 @@
     <iframe src="https://www.youtube.com/embed/DvfWRfBSiic" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/MMROdnHN_d8" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/BbpOnEthh9I" frameborder="0" allowfullscreen></iframe>
-
-    <!-- Новые видео IRL (Stint) -->
     <iframe src="https://www.youtube.com/embed/iRcc6aJHiS0" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/vdMTPLu1lKs" frameborder="0" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/3vuUiehPD6M" frameborder="0" allowfullscreen></iframe>
@@ -266,40 +223,59 @@
     <iframe src="https://www.youtube.com/embed/8KwdzK6gjhs" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- Модалка -->
   <div class="modal" id="modal">
     <span class="close" onclick="closeModal()">&times;</span>
     <img id="modal-img" src="">
   </div>
 
-  <!-- Плеер музыки -->
   <audio id="bg-music" autoplay loop>
     <source src="trek.mp3" type="audio/mpeg">
-    Ваш браузер не поддерживает воспроизведение аудио.
   </audio>
 
   <script>
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-img");
     const images = document.querySelectorAll(".gallery img");
-
     images.forEach(img => {
       img.addEventListener("click", () => {
         modal.style.display = "flex";
         modalImg.src = img.src;
       });
     });
-
-    function closeModal() {
-      modal.style.display = "none";
-    }
-
-    // 🎵 Автовоспроизведение музыки (после клика на сайт)
+    function closeModal() { modal.style.display = "none"; }
     const audio = document.getElementById("bg-music");
-    document.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.play().catch(e => console.log("Автовоспроизведение заблокировано:", e));
-      }
+    document.addEventListener("click", () => { if (audio.paused) audio.play(); });
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particles = [];
+    for (let i=0; i<80; i++) {
+      particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2+1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+      });
+    }
+    function draw() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = "#9146ff";
+      particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+    window.addEventListener("resize",()=>{
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     });
   </script>
 </body>
